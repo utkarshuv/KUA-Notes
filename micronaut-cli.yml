@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.example
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, cache-caffeine, data, data-jpa, flyway, gradle, graphql, hibernate-jpa, http-client, java, java-application, jdbc-hikari, junit, junit-params, lombok, micronaut-aop, micronaut-aot, micronaut-build, micronaut-http-validation, netty-server, openapi, postgres, readme, serialization-jsonp, shade, slf4j-simple-logger, spring, spring-boot, spring-data-jpa, swagger-ui, test-resources, websocket, yaml, yaml-build]
