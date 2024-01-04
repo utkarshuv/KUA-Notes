@@ -1,3 +1,10 @@
-
 rootProject.name="kua-notes"
+include 'controller', 'domain', 'service', 'repository-jpa', 'infrastructure'
+
+project(':controller').projectDir = file 'modules/controller'
+project(':domain').projectDir = file 'modules/domain'
+project(':infrastructure').projectDir = file 'modules/infrastructure'
+project(':repository-jpa').projectDir = file 'modules/repository-jpa'
+project(':service').projectDir = file 'modules/service'
+include 'abhi'
 
