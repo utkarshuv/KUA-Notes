@@ -1,9 +1,9 @@
 module com.kua.service {
     requires lombok;
-    requires java.annotation;
     requires jakarta.inject;
-    requires jakarta.transaction;
+//    requires jakarta.transaction;
     requires com.kua.domain;
+    requires com.kua.repository.jpa;
 
     exports com.kua.service;
 }
