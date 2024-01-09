@@ -1,5 +1,4 @@
 package com.kua.infrastructure;
 
-public class Users {
-    
+public class KuaNotesAppMain {
 }

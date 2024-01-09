@@ -1,23 +1,27 @@
-plugins {
-    id 'java'
-}
-
-group 'com.example'
-version '0.1'
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'io.micronaut.application'
 
 dependencies {
+    //Onion Arch related
     implementation project(path: ':controller')
     implementation project(path: ':service')
     implementation project(path: ':domain')
     implementation project(path: ':repositoryJpa')
+
+    //DB related
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    runtimeOnly("com.h2database:h2")
+    implementation("io.micronaut.data:micronaut-data-jdbc")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+
+    //Test related
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
-test {
-    useJUnitPlatform()
+application{
+    mainClass.set("com.kua.infrastructure.KuaNotesAppMain")
 }
+
+//test {
+//    useJUnitPlatform()
+//}
