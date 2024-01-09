@@ -2,76 +2,81 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.2.1"
     id("io.micronaut.test-resources") version "4.2.1"
-    id("io.micronaut.aot") version "4.2.1"
+//    id("io.micronaut.aot") version "4.2.1"
+    id("io.micronaut.library") version "4.2.0"
 }
 
-version = "0.1"
-group = "com.example"
+subprojects {
 
-repositories {
-    mavenCentral()
-}
+    apply plugin: "io.micronaut.library"
 
-dependencies {
-    annotationProcessor("org.projectlombok:lombok")
-    annotationProcessor("io.micronaut.data:micronaut-data-processor")
-    annotationProcessor("io.micronaut:micronaut-http-validation")
-    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
-    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    annotationProcessor("io.micronaut.spring:micronaut-spring-annotation")
-    annotationProcessor("io.micronaut.spring:micronaut-spring-boot-annotation")
-    implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut.cache:micronaut-cache-caffeine")
-    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
-    implementation("io.micronaut.data:micronaut-data-spring")
-    implementation("io.micronaut.data:micronaut-data-spring-jpa")
-    implementation("io.micronaut.data:micronaut-data-tx-hibernate")
-    implementation("io.micronaut.flyway:micronaut-flyway")
-    implementation("io.micronaut.graphql:micronaut-graphql")
-    implementation("io.micronaut.serde:micronaut-serde-jsonp")
-    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
-    implementation("jakarta.annotation:jakarta.annotation-api")
-    implementation("org.springframework:spring-orm")
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
-    compileOnly("org.projectlombok:lombok")
-    runtimeOnly("io.goodforgod:slf4j-simple-logger:2.0.0")
-    runtimeOnly("io.micronaut.spring:micronaut-spring-boot")
-    testAnnotationProcessor("io.micronaut.spring:micronaut-spring-boot-annotation")
-    testImplementation("org.junit.jupiter:junit-jupiter-params")
-}
+    version = "0.1"
+    group = "com.example"
 
-
-application {
-    mainClass.set("com.example.Application")
-}
-java {
-    sourceCompatibility = JavaVersion.toVersion("17")
-    targetCompatibility = JavaVersion.toVersion("17")
-}
-
-
-graalvmNative.toolchainDetection = false
-micronaut {
-    runtime("netty")
-    testRuntime("junit5")
-    processing {
-        incremental(true)
-        annotations("com.example.*")
+    repositories {
+        mavenCentral()
     }
-    aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
-        optimizeServiceLoading = false
-        convertYamlToJava = false
-        precomputeOperations = true
-        cacheEnvironment = true
-        optimizeClassLoading = true
-        deduceEnvironment = true
-        optimizeNetty = true
+
+    dependencies {
+        annotationProcessor("org.projectlombok:lombok")
+        annotationProcessor("io.micronaut.data:micronaut-data-processor")
+        annotationProcessor("io.micronaut:micronaut-http-validation")
+        annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+        annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+        annotationProcessor("io.micronaut.spring:micronaut-spring-annotation")
+        annotationProcessor("io.micronaut.spring:micronaut-spring-boot-annotation")
+        implementation("io.micronaut:micronaut-http-client")
+        implementation("io.micronaut.cache:micronaut-cache-caffeine")
+        implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+        implementation("io.micronaut.data:micronaut-data-spring")
+        implementation("io.micronaut.data:micronaut-data-spring-jpa")
+        implementation("io.micronaut.data:micronaut-data-tx-hibernate")
+        implementation("io.micronaut.flyway:micronaut-flyway")
+        implementation("io.micronaut.graphql:micronaut-graphql")
+        implementation("io.micronaut.serde:micronaut-serde-jsonp")
+        implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+        implementation("jakarta.annotation:jakarta.annotation-api")
+        implementation("org.springframework:spring-orm")
+        implementation("org.springframework.boot:spring-boot-starter")
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
+        compileOnly("org.projectlombok:lombok")
+        runtimeOnly("io.goodforgod:slf4j-simple-logger:2.0.0")
+        runtimeOnly("io.micronaut.spring:micronaut-spring-boot")
+        testAnnotationProcessor("io.micronaut.spring:micronaut-spring-boot-annotation")
+        testImplementation("org.junit.jupiter:junit-jupiter-params")
     }
+
+
+    application {
+        mainClass.set("com.example.Application")
+    }
+    java {
+        sourceCompatibility = JavaVersion.toVersion("17")
+        targetCompatibility = JavaVersion.toVersion("17")
+    }
+
+
+    graalvmNative.toolchainDetection = false
+    micronaut {
+        runtime("netty")
+        testRuntime("junit5")
+        processing {
+            incremental(true)
+            annotations("com.example.*")
+        }
+//        aot {
+//            // Please review carefully the optimizations enabled below
+//            // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+//            optimizeServiceLoading = false
+//            convertYamlToJava = false
+//            precomputeOperations = true
+//            cacheEnvironment = true
+//            optimizeClassLoading = true
+//            deduceEnvironment = true
+//            optimizeNetty = true
+//        }
+    }
+
 }
-
-
 

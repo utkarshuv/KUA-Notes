@@ -2,12 +2,12 @@ plugins {
     id 'java'
 }
 
-group 'com.example'
-version '0.1'
-
-repositories {
-    mavenCentral()
-}
+//group 'com.example'
+//version '0.1'
+//
+//repositories {
+//    mavenCentral()
+//}
 
 dependencies {
      implementation(
