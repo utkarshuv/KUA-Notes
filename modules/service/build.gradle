@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation project(path: ':domain')
-    implementation project(path: ':repository-jpa')
+    implementation project(path: ':repositoryJpa')
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.5'
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'jakarta.inject:jakarta.inject-api:2.0.0'

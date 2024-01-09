@@ -3,7 +3,7 @@ module com.kua.service {
     requires jakarta.inject;
 //    requires jakarta.transaction;
     requires com.kua.domain;
-    requires com.kua.repository.jpa;
+    requires com.kua.repositoryJpa;
 
     exports com.kua.service;
 }

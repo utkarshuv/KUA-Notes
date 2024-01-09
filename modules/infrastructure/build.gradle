@@ -13,7 +13,7 @@ dependencies {
     implementation project(path: ':controller')
     implementation project(path: ':service')
     implementation project(path: ':domain')
-    implementation project(path: ':repository-jpa')
+    implementation project(path: ':repositoryJpa')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }

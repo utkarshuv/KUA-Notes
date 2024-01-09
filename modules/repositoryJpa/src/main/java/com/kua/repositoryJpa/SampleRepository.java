@@ -1,4 +1,4 @@
-package com.kua.repository.jpa;
+package com.kua.repositoryJpa;
 
 public class SampleRepository {
     
