@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'com.example'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+     implementation(
+            project(':domain'),
+            project(':service')
+    )
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.5'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'jakarta.inject:jakarta.inject-api:2.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
