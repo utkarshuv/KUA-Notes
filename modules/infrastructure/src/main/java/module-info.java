@@ -8,6 +8,7 @@ module com.kua.infrastructure {
     requires com.kua.service;
     requires com.kua.domain;
     requires com.kua.repositoryJpa;
+    requires io.micronaut.context;
 
     exports com.kua.infrastructure;
 }

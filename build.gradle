@@ -1,9 +1,8 @@
 plugins {
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.micronaut.application") version "4.2.1"
-    id("io.micronaut.test-resources") version "4.2.1"
-//    id("io.micronaut.aot") version "4.2.1"
-    id("io.micronaut.library") version "4.2.0"
+    id("com.github.johnrengelman.shadow") version "8.1.1" apply false
+    id("io.micronaut.application") version "4.2.1" apply false
+    id("io.micronaut.test-resources") version "4.2.1" apply false
+    id("io.micronaut.library") version "4.2.0" apply false
 }
 
 subprojects {
@@ -11,7 +10,7 @@ subprojects {
     apply plugin: "io.micronaut.library"
 
     version = "0.1"
-    group = "com.example"
+    group = "com.kua"
 
     repositories {
         mavenCentral()
@@ -47,10 +46,6 @@ subprojects {
         testImplementation("org.junit.jupiter:junit-jupiter-params")
     }
 
-
-    application {
-        mainClass.set("com.example.Application")
-    }
     java {
         sourceCompatibility = JavaVersion.toVersion("17")
         targetCompatibility = JavaVersion.toVersion("17")
@@ -65,18 +60,6 @@ subprojects {
             incremental(true)
             annotations("com.example.*")
         }
-//        aot {
-//            // Please review carefully the optimizations enabled below
-//            // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
-//            optimizeServiceLoading = false
-//            convertYamlToJava = false
-//            precomputeOperations = true
-//            cacheEnvironment = true
-//            optimizeClassLoading = true
-//            deduceEnvironment = true
-//            optimizeNetty = true
-//        }
     }
-
 }
 
